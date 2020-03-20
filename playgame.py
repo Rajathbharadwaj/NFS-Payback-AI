@@ -1,0 +1,64 @@
+import numpy as np
+from PIL import ImageGrab
+import cv2
+import time
+from directkeys import PressKey,ReleaseKey, turnRight, turnLeft, straight, W, A, D
+from alexnet import alexnet
+from getkeys import key_check
+
+WIDTH = 80
+HEIGHT = 60
+LR = 0.001
+EPOCHS = 15
+MODEL_NAME = 'nfspb_epoch_lr{}_{}_{}.model'.format(LR, 'alexnet', EPOCHS)
+model = alexnet(WIDTH, HEIGHT, LR)
+model.load(MODEL_NAME)
+
+
+def main():
+    last_time = time.time()
+    for i in list(range(4))[::-1]:
+        print(i + 1)
+        time.sleep(1)
+
+    paused = False
+    while (True):
+
+        if not paused:
+            # 800x600 windowed mode
+            screen = np.array(ImageGrab.grab(bbox=(0, 40, 800, 640)))
+            print('loop took {} seconds'.format(time.time() - last_time))
+            last_time = time.time()
+            screen = cv2.cvtColor(screen, cv2.COLOR_BGR2GRAY)
+            screen = cv2.resize(screen, (80, 60))
+            moves = list(np.around(model.predict([screen.reshape(80, 60, 1)])[0]))
+            if moves == [1, 0, 0]:
+                turnLeft()
+                print('left')
+            elif moves == [0, 1, 0]:
+                straight()
+                print('straight')
+            elif moves == [0, 0, 1]:
+                turnRight()
+                print('Right')
+
+        keys = key_check()
+
+        # p pauses game and can get annoying.
+        if 'J' in keys:
+            if paused:
+                paused = False
+                time.sleep(1)
+            else:
+                paused = True
+                ReleaseKey(A)
+                ReleaseKey(W)
+                ReleaseKey(D)
+                time.sleep(1)
+
+        if cv2.waitKey(25) & 0xFF == ord('q'):
+            cv2.destroyAllWindows()
+            break
+
+if __name__ == '__main__':
+    main()
