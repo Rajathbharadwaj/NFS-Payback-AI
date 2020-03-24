@@ -60,17 +60,38 @@ def straight():
     PressKey(W)
     ReleaseKey(A)
     ReleaseKey(D)
+    ReleaseKey(S)
 
 def turnLeft():
     PressKey(W)
+    time.sleep(0.09)
     PressKey(A)
     ReleaseKey(D)
+    ReleaseKey(S)
 
 def turnRight():
     PressKey(W)
     PressKey(D)
     ReleaseKey(A)
+    ReleaseKey(S)
 
+def reverse():
+    PressKey(S)
+    ReleaseKey(D)
+    ReleaseKey(A)
+    ReleaseKey(W)
+
+def reverseRight():
+    PressKey(S)
+    PressKey(D)
+    ReleaseKey(A)
+    ReleaseKey(W)
+
+def reverseLeft():
+    PressKey(S)
+    PressKey(A)
+    ReleaseKey(S)
+    ReleaseKey(W)
 
 
 if __name__ == '__main__':

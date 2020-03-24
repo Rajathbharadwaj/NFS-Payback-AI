@@ -1,2 +1,2 @@
-model_checkpoint_path: "G:\\gtaplay\\model_alexnet-1500"
-all_model_checkpoint_paths: "G:\\gtaplay\\model_alexnet-1500"
+model_checkpoint_path: "G:\\gtaplay\\nfspb_epoch_lr0001_alexnet_15_reverse.model"
+all_model_checkpoint_paths: "G:\\gtaplay\\nfspb_epoch_lr0001_alexnet_15_reverse.model"

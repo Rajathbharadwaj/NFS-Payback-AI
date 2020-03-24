@@ -17,18 +17,18 @@ reverses = []
 
 
 shuffle(train_data)
-shuffle(train_data)
+
 for data in train_data:
     img = data[0]
     choice = data[1]
 
-    if choice == [1,0,0,0]:
-        lefts.append([img,choice])
-    elif choice == [0,1,0,0]:
-        forwards.append([img,choice])
-    elif choice == [0,0,1,0]:
-        rights.append([img,choice])
-    elif choice == [0,0,0,1]:
+    if choice == [1, 0, 0, 0]:
+        lefts.append([img, choice])
+    elif choice == [0, 1, 0, 0]:
+        forwards.append([img, choice])
+    elif choice == [0, 0, 1, 0]:
+        rights.append([img, choice])
+    elif choice == [0, 0, 0, 1]:
         reverses.append([img, choice])
         print('no matches')
 

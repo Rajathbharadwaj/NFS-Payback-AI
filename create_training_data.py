@@ -22,23 +22,9 @@ def keysToOutput(keys):
         pass
     return output
 
-# def mouseToOutput(keys):
-#     #output = [x, y,  button]
-#     output = [0, 0,  0, 0]
-#
-#     if 'A' in keys:
-#         output[0]= 1
-#     elif 'D' in keys:
-#         output[2] = 1
-#     elif 'W' in keys:
-#         output[1] = 1
-#     elif 'S':
-#         output[3] = 1
-#     else:
-#         pass
-#     return output
 
-file_name = 'training_data_with_reverse.py'
+
+file_name = 'training_data_with_reverse.py.npy'
 
 if os.path.isfile(file_name):
     training_data = list(np.load(file_name))
