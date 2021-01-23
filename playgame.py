@@ -11,9 +11,9 @@ HEIGHT = 60
 LR = 0.001
 EPOCHS = 15
 
-MODEL_NAME = 'nfspb_epoch_lr{}_{}_{}_reverse.model'.format('0001', 'alexnet', EPOCHS)
-model = alexnet(WIDTH, HEIGHT, LR)
-model.load(MODEL_NAME)
+MODEL_NAME = 'nfspb_epoch_lr{}_{}_{}_reverse.model'.format('0001', 'alexnet', EPOCHS) #model name
+model = alexnet(WIDTH, HEIGHT, LR) #init the model architechture
+model.load(MODEL_NAME) #load the pretrained model
 
 
 def main():
@@ -27,13 +27,13 @@ def main():
 
         if not paused:
             # 800x600 windowed mode
-            screen = np.array(ImageGrab.grab(bbox=(0, 40, 800, 640)))
+            screen = np.array(ImageGrab.grab(bbox=(0, 40, 800, 640))) #grab the game screen 
             print('loop took {} seconds'.format(time.time() - last_time))
             last_time = time.time()
-            screen = cv2.cvtColor(screen, cv2.COLOR_BGR2GRAY)
-            screen = cv2.resize(screen, (80, 60))
+            screen = cv2.cvtColor(screen, cv2.COLOR_BGR2GRAY) #convert to greyscale
+            screen = cv2.resize(screen, (80, 60)) #resize as per model accepted dimensions
             cv2.imshow('window', screen)
-            moves = list(np.around(model.predict([screen.reshape(80, 60, 1)])[0]))
+            moves = list(np.around(model.predict([screen.reshape(80, 60, 1)])[0])) #predict the moves based on the above resized image(array/tensor) -> returns list
             if moves == [1, 0, 0, 0]:
                 turnLeft()
                 time.sleep(0.09)
@@ -64,7 +64,7 @@ def main():
 
         keys = key_check()
 
-        # p pauses game and can get annoying.
+        # to pause the keypress simulation, to gain control over the car.
         if 'J' in keys:
             if paused:
                 paused = False
