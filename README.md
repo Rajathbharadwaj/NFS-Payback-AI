@@ -15,3 +15,6 @@ The inferencing is made on the go, using the imageGrab, the image is converted t
 
 
 `playgame.py` [https://github.com/Rajathbharadwaj/NFS-Payback-AI/blob/master/playgame.py] is the main module which runs the entire program
+
+Here's the gameplay video 
+[https://www.instagram.com/tv/B-QNp11DSpn3td6ApRvNMuYpT_kfjotTTfyGeQ0/?igshid=1m6padcj2yqfy]
