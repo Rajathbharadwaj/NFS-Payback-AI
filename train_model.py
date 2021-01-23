@@ -4,7 +4,7 @@ import numpy as np
 WIDTH = 80
 HEIGHT = 60
 LR = 0.001
-EPOCHS = 15
+EPOCHS = 1000
 
 MODEL_NAME = 'nfspb_epoch_lr{}_{}_{}_reverse.model'.format('0001', 'alexnet', EPOCHS)
 
