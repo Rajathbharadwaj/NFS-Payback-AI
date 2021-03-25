@@ -95,7 +95,7 @@ pytz==2019.3
 PyWavelets==1.1.1
 pywin32==227
 pywinpty==0.5.7
-PyYAML==5.1.2
+PyYAML==5.4
 pyzmq==19.0.0
 resampy==0.2.2
 scikit-image==0.16.2
