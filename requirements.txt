@@ -63,7 +63,7 @@ networkx==2.4
 nltk==3.4.5
 notebook==6.0.3
 numba==0.46.0
-numpy==1.16.5
+numpy==1.22.0
 olefile==0.46
 opencv-python==4.2.0.32
 pandas==1.0.3
